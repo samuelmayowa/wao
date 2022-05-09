@@ -1,0 +1,47 @@
+{% extends 'core/base2.html' %}
+
+{% block title %}Apply | {% endblock %}
+
+{% load static %}
+
+{% block content %}
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Apply</title>
+        <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'assets/css/main.css'  %}">
+    </head>
+    <body>
+
+    <fieldset>
+          <legend class="text-center"><span class="number text-center">info</span>Fill out the below form</legend>
+        </fieldset>
+
+    <form method="post"  action="." enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }} <br/>
+
+        <div class="field">
+            <div class="control">
+                <button class="btn btn-success is-uppercase">SUBMIT</button>
+            </div>
+        </div>
+    </form>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {%for i in up %}
+        {{i.Comments}}
+        <img src ="{{i.img}}", alt="">
+    {%endfor%}
+
+    </body>
+
+{% endblock %}

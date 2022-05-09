@@ -1,0 +1,50 @@
+{% extends 'core/base2.html' %}
+
+{% block title %}Edit product | {% endblock %}
+
+
+{% load static %}
+
+{% block content %}
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up Form</title>
+        <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'assets/css/main.css'  %}">
+    </head>
+    <body>
+
+    <fieldset>
+          <legend class="text-center"><span class="number text-center">info</span>Please effect your changes and click save</legend>
+        </fieldset>
+
+    <form method="post"  action="." enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }} <br/>
+
+        <div class="field">
+            <div class="control">
+                <button class="btn btn-success is-uppercase">Save Changes</button>
+            </div>
+        </div>
+
+
+    <hr>
+
+
+    <form method="post"  action="." enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ productimageform.as_p }} <br/>
+
+        <div class="field">
+            <div class="control">
+                <button class="btn btn-success is-uppercase">Add More Images</button>
+            </div>
+        </div>
+    </form>
+    </body>
+{% endblock %}

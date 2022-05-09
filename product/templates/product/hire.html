@@ -1,0 +1,55 @@
+{% extends 'core/base2.html' %}
+
+{% block title %}Add product | {% endblock %}
+
+
+{% load static %}
+
+{% block content %}
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up Form</title>
+        <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'assets/css/main.css'  %}">
+    </head>
+    <body>
+
+    <div>
+        {% if messages %}
+        <div class="topcorner">
+            {% for message in messages %}
+                <p class="btn-info btn-sm" id="messages">{{message}}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div>
+            <h4> <a class="btn btn-success" href="{% url 'apply' %}">APPLY ONLINE</a>  or send your CV to hire@wao.ng. Our recruitment team will get back to you as soon as possible </h4><br>
+        </div>
+        <div>
+            <h3 class="text-uppercase"><strong>• &#160  Sellers Acquisition/ agents Apply<br> </strong></h3>
+wao.ng  users account pays up to ₦75,000 monthly, 25% commission on registration of Premium users. We are looking for individuals who are results-driven and possess sales and acquisition skills. <br><br> wao.ng is the best platform to build a great future and career in Sales and E-commerce with an international company
+
+PLEASE READ JOB ROLE IN DETAIL<br><br>
+            <strong>• &#160 JOB ROLE: WHAT YOU WILL BE DOING<br></strong>
+You will work daily on the Market to REGISTER and MANAGE Sellers from various sectors like Electronics, Fashion, Cars, Real Estate, Home and Garden, etc.
+Your Main target is to register wao.ng  standard/free packages for sellers or business owners, the optional target is to sell subscription packages for sellers to boost their sales. NOTE: this is not required at this time
+You will be Responsible for the entire sales process from prospecting to Selling Premium packages and Continuous Follow up
+Ensuring you Meet and exceed individual weekly and monthly sales targets <br><br>
+<strong>• &#160 REQUIRED QUALIFICATIONS/CANDIDATE REQUIREMENTS<br></strong>
+OND/Bachelor degree
+Outstanding sales skills with proven ability to convert prospects into paying clients
+Should have a Working Android Phone
+Sales/Marketing Experience is an added Advantage
+Must live in Lagos, Ibada, Abeokuta Ogun State, Akure and any part of Osun State. <br><br>
+            <strong>• &#160 WHAT WE ARE OFFERING/BENEFITS<br></strong>
+Best selling agents get up to ₦180,000 per month
+Uncapped sales commissions of 25% of total sales
+Opportunity to continuously earn bonuses on registered users even when you are no longer working with us
+Clearly defined Career Growth path: Sales Agent > Team Lead > Sales Manager
+Monthly team bonding activities
+Send CVs with job subject to hire@wao.ng
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,291 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block title %}{{ product.title }} | {% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+		<title>Wao.ng - HTML Ecommerce Template</title>
+
+ 		<!-- Google font -->
+ 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+ 		<!-- Bootstrap -->
+ 		<link type="text/css" rel="stylesheet" href="{% static 'aseets/css/bootstrap.min.css' %}"/>
+
+ 		<!-- Slick -->
+ 		<link type="text/css" rel="stylesheet" href="{% static 'assets/css/slick.css'%}"/>
+ 		<link type="text/css" rel="stylesheet" href="{% static  'assets/css/slick-theme.css'%}"/>
+
+ 		<!-- nouislider -->
+ 		<link type="text/css" rel="stylesheet" href="{% static 'css/nouislider.min.css'%}"/>
+
+ 		<!-- Font Awesome Icon -->
+ 		<link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+
+ 		<!-- Custom stlylesheet -->
+ 		<link type="text/css" rel="stylesheet" href="{% static 'css/style.css'%}"/>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    </head>
+	<body>
+		<!-- HEADER -->
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- Product main img -->
+					<div class="col-md-7 col-md-push-0">
+						<div id="product-main-img">
+
+
+                                    <figure class="pre-scrollable">
+                                        <div class="product-preview">
+                                            <img src="{{ product.get_thumbnail}}">
+
+                                        </div>
+                                    </figure>
+
+							<div class="product-preview">
+
+							</div>
+
+							<div class="product-preview">
+								<img src="#">
+							</div>
+
+							<div class="product-preview">
+								
+							</div>
+						</div>
+					</div>
+					<!-- /Product main img -->
+
+					<!-- Product thumb imgs -->
+					
+					<!-- /Product thumb imgs -->
+
+					<!-- Product details -->
+					<div class="col-md-5">
+						<div class="product-details">
+							<h2 class="product-name">{{ product.title }}&#160 &#160 &#160  <i>Posted: {{ product.date_added }}</i></h2> 
+							<div>
+								<div class="product-rating">
+
+								</div>
+
+							</div>
+							<div>
+								<h3 class="product-price">₦{{ product.price }}</h3>
+								<span class="product-available">{{ product.status }}
+							</div>
+							<p><label class="text-uppercase">About this {{ product.category }}: • {{ product.description }}</p></label>
+
+							<div class="product-options">
+								<li class="text-uppercase" >	Condition:					
+										{{ product.condition }}
+									
+								
+								
+									&#160 &#160 &#160 • &#160 Location:
+
+										{{ product.location_state }} {{ product.location_street }}</li>
+									</label>
+								</label>
+                                <label>
+									
+
+										<li>Address: &#160 {{ product.address }} {{ product.location_street }}</li>
+									</label>
+								</label>
+							</div>
+
+							<div class="add-to-cart">
+								<div class="qty-label">
+
+									<div class="">
+                                        <h3> <strong><p class="" style="color: cornflowerblue"> •  &#160 &#160 Seller:&#160  &#160 {{ product.business_name }}</p> <br></strong></h3>
+									</div>
+								</div><br>
+                                <div class="add-to-cart">
+                                    <div class="qty-label">
+
+                                        <div class="input-number">
+                                            <button class="button is-primary is-uppercase "><a href="Tel: {{ product.phone_number }}" style="color: white"> {{ product.phone_number }}</a> </button> </div> &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160   <a  class="button is-success" href="https://api.whatsapp.com/send?phone=19998887878&text=Hi%20There!">WhatsApp Now</a></a> </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+							</div>
+							<div class="">
+								<div class=""><strong>
+									Satety Tips:&#160 </strong>
+									<li class="">
+										Don't pay in advance, including for delivery
+									<li class="">Meet the seller at a safe public place
+									<li >Inspect the item and ensure it's exactly what you want  
+          							<li> On delivery, check that you got the right item
+									<li> Only pay when you're satisfied</li>
+									</div>
+								</div>
+								
+							</div>
+
+							<ul class="product-btns">
+
+							</ul>
+
+							<ul class="product-links">
+								<li>Category: &#160 &#160 
+								<a href="#">{{ product.category }}</a></li>
+								
+							</ul>
+
+
+						</div>
+					</div>
+					<!-- /Product details -->
+
+					<!-- Product tab -->
+					<div class="col-md-12">
+						<div id="product-tab">
+							<!-- product tab nav -->
+							<ul class="tab-nav">
+								<li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
+								<li><a data-toggle="tab" href="#tab2">Details</a></li>
+								<li><a data-toggle="tab" href="#tab3"> Submit Review (0)</a></li>
+							</ul>
+							<!-- /product tab nav -->
+
+							<!-- product tab content -->
+							<div class="tab-content">
+								<!-- tab1  -->
+								<div id="tab1" class="tab-pane fade in active">
+									<div class="row">
+										<div class="col-md-12">
+											<p>{{ product.description }}</p>
+										</div>
+									</div>
+								</div>
+								<!-- /tab1  -->
+
+								<!-- tab2  -->
+								<div id="tab2" class="tab-pane fade in">
+									<div class="row">
+										<div class="col-md-12">
+                                            <p>{{ product.description }}</p> <p> {{ product.title }} </p> <p> {{ product.type }} </p> <p>{{ product.condition }} </p> <p>{{ product.location_state }} </p> <p> {{ product.location_street }}</p>
+										</div>
+									</div>
+								</div>
+								<!-- /tab2  -->
+
+								<!-- tab3  -->
+								<div id="tab3" class="tab-pane fade in">
+									<div class="row">
+										<!-- Rating -->
+										<div class="col-md-3">
+
+										</div>
+										<!-- /Rating -->
+
+										<!-- Reviews -->
+										<div class="col-md-6">
+
+										</div>
+										<!-- /Reviews -->
+
+										<!-- Review Form -->
+                        <div class="col-md-5">
+											<div id="review-form">
+												<form class="review-form">
+													<input class="input" type="text" placeholder="Your Name">
+													<input class="input" type="email" placeholder="Your Email">
+													<textarea class="input" placeholder="Your Review"></textarea>
+													<div class="input-rating">
+														<span>Your Rating: </span>
+														<div class="stars">
+															<input id="star5" name="rating" value="5" type="radio"><label for="star5"></label>
+															<input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
+															<input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
+															<input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
+															<input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
+														</div>
+													</div>
+													<button class="primary-btn">Submit</button>
+												</form>
+											</div>
+										</div>
+										<!-- /Review Form -->
+									</div>
+								</div>
+								<!-- /tab3  -->
+							</div>
+							<!-- /product tab content  -->
+						</div>
+					</div>
+					<!-- /product tab -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+
+		<!-- jQuery Plugins -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/slick.min.js"></script>
+		<script src="js/nouislider.min.js"></script>
+		<script src="js/jquery.zoom.min.js"></script>
+		<script src="js/main.js"></script>
+
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+    {% if similar_products %}
+        <hr>
+
+        <div class="columns is-multiline">
+            <div class="column is-12">
+                <h2 class="subtitle">Similar products</h2>
+            </div>
+
+            {% for product in similar_products %}
+                {% include 'product/parts/list_item.html' %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,163 @@
+{% extends 'core/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>wao.ng</title>
+
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+		<!-- Bootstrap -->
+		<link type="text/css" rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"/>
+
+		<!-- Slick -->
+		<link type="text/css" rel="stylesheet" href="{% static 'assets/css/slick.css'%}"/>
+		<link type="text/css" rel="stylesheet" href="{% static 'assets/css/slick-theme.css'%}"/>
+
+		<!-- nouislider -->
+		<link type="text/css" rel="stylesheet" href="{% static 'assets/css/nouislider.min.css'%}"/>
+
+		<!-- Font Awesome Icon -->
+		<link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css'%}">
+
+		<!-- Custom stlylesheet -->
+		<link type="text/css" rel="stylesheet" href="{% static 'assets/css/style.css'%}"/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{% block title %}{% endblock %}Wao.ng</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+        <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+
+        <script src="{% static 'scripts/main.js' %}"></script>
+        </head>
+
+{% block content %}
+<body>
+			<!-- container -->
+			<div class="container">
+				<!-- responsive-nav -->
+				<div id="responsive-nav">
+					<!-- NAV -->
+					<ul class="main-nav nav navbar-nav">
+						<li class="active"><a data-toggle="tab" href="#tab1">Categories: </a></li>
+                        <li><a <a data-toggle="tab" href="#tab1">Vehicles</a></li>
+                        <li><a data-toggle="tab" href="#tab1">Properties</a></li>
+                        <li><a data-toggle="tab" href="#tab1">Phones and Tablets</a></li>
+                        <li><a data-toggle="tab" href="#tab1">Electronics</a></li>
+                        <li><a data-toggle="tab" href="#tab1">Home, Furniture & Appliances</a></li>
+					</ul>
+					<!-- /NAV -->
+				</div>
+				<!-- /responsive-nav -->
+			</div>
+			<!-- /container -->
+		</nav>
+		<!-- /NAVIGATION -->
+		<!-- SECTION -->
+
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+
+					<!-- section title -->
+					<div class="col-md-12">
+						<div class="section-title">
+							<h3 class="title">Trending ads</h3>
+
+						</div>
+					</div>
+					<!-- /section title -->
+
+					<!-- Products tab & slick -->
+					<div class="col-md-12">
+						<div class="row">
+							<div class="products-tabs">
+								<!-- tab -->
+								<div id="tab1" class="tab-pane active">
+									<div class="products-slick" data-nav="#slick-nav-1">
+										<!-- product -->
+
+                                                {% for product in newest_products %}
+                                                    {% include 'product/parts/list_item.html' %}
+                                                {% endfor %}
+
+										</div>
+										<!-- /product -->
+									</div>
+									<div id="slick-nav-1" class="products-slick-nav"></div>
+								</div>
+								<!-- /tab -->
+							</div>
+						</div>
+					</div>
+					<!-- Products tab & slick -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+
+					<!-- section title -->
+					<div class="col-md-12">
+						<div class="section-title">
+							<h3 class="title">Top Selling</h3>
+
+						</div>
+					</div>
+					<!-- /section title -->
+
+					<!-- Products tab & slick -->
+					<div class="col-md-12">
+						<div class="row">
+							<div class="products-tabs">
+								<!-- tab -->
+								<div id="tab1" class="tab-pane active">
+									<div class="products-slick" data-nav="#slick-nav-1">
+										<!-- product -->
+
+                                                {% for product in newest_products %}
+                                                    {% include 'product/parts/list_item.html' %}
+                                                {% endfor %}
+
+										</div>
+										<!-- /product -->
+									</div>
+									<div id="slick-nav-1" class="products-slick-nav"></div>
+								</div>
+								<!-- /tab -->
+							</div>
+						</div>
+					</div>
+					<!-- Products tab & slick -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+
+    <!-- jQuery Plugins -->
+		<script src="{% static 'assets/js/jquery.min.js'%}"></script>
+		<script src="{% static 'assets/js/bootstrap.min.'%}js"></script>
+		<script src="{% static 'assets/js/slick.min.js'%}"></script>
+		<script src="{% static 'assets/js/nouislider.min.js'%}"></script>
+		<script src="{% static 'assets/js/jquery.zoom.min.js'%}"></script>
+		<script src="{% static 'assets/js/main.js' %}"></script>
+
+
+{% endblock %}

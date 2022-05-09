@@ -1,0 +1,43 @@
+{% extends 'core/base2.html' %}
+{% load static %}
+
+{% block content %}
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Log in</title>
+        <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'assets/css/main.css'  %}">
+    </head>
+    <body>
+
+      <form action="index.html" method="post">
+
+        <fieldset>
+          <legend><span class="number">1</span>Your basic info</legend>
+        </fieldset>
+      </form>
+
+    </body>
+</html>
+     <!--Start of Login Form UI-->
+<form method="POST" action="">
+    {% csrf_token %}
+
+    {{ form.username.label }}
+    {{ form.username }}
+
+    {{ form.password.label }}
+    {{ form.password }}
+
+    <input type="submit" class="btn btn-success" name="Register">
+
+
+
+    {{form.errors}}
+    <a class="btn btn-sm btn-info" href="{% url 'become_vendor' %}">New User: Register Here</a>
+<!--End of Login Form UI-->
+</form>
+
+{% endblock %}

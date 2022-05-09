@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Vendor Admin | {% endblock %}
+
+{% block content %}
+    <div class="box">
+
+        <h3 style="color: #761c19" class="is-size-4 mb-4"> My Dashboard - {{ vendor.name }}</h3>
+
+        <a href="{% url 'edit_vendor' %}" class="button is-primary is-uppercase"> Edit My Details</a>
+        <a href="{% url 'logout' %}" class="button is-danger is-uppercase">Log out</a>
+        <div class="topcorner">
+            {% for message in messages %}
+                <p class="btn-info btn-sm" id="messages">{{message}}</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="box">
+            <h3 style="color: #761c19" class="is-size-5 mb-4">MY ACTIVE ADS</h3>
+
+            <a href="{% url 'add_product' %}" class="button is-primary is-uppercase mb-6">Post ads</a>
+
+            {% if products %}
+                <table class="table is-fullwidth">
+                    <thead>
+                        <tr style="color: #761c19" class="is-size-6 mb-4">
+                            <th style="color: #761c19" class="is-size-6 mb-4">Title</th>
+                            <th style="color: #761c19" class="is-size-6 mb-4">Price</th>
+                            <th style="color: #761c19" class="is-size-6 mb-4">Actions</th>
+
+
+                        </tr>
+                    </thead>
+
+                <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <td><a href="{% url 'product' product.category.slug product.slug %}">{{ product.title }}</a></td>
+                            <td>₦{{product.price }}</td>
+
+                            <td><a class="button is-primary is-uppercase" href="{% url 'edit_product' product.id %}">Edit</a> </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+            {% else %}
+                <p>You don't have any ad yet...</p>
+            {% endif %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,274 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+
+
+		<title>wao.ng</title>
+
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+		<!-- Bootstrap -->
+		<link type="text/css" rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"/>
+
+		<!-- Slick -->
+		<link type="text/css" rel="stylesheet" href="{% static 'assets/css/slick.css'%}"/>
+		<link type="text/css" rel="stylesheet" href="{% static 'assets/css/slick-theme.css'%}"/>
+
+		<!-- nouislider -->
+		<link type="text/css" rel="stylesheet" href="{% static 'assets/css/nouislider.min.css'%}"/>
+
+		<!-- Font Awesome Icon -->
+		<link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css'%}">
+
+		<!-- Custom stlylesheet -->
+		<link type="text/css" rel="stylesheet" href="{% static 'assets/css/style.css'%}"/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{% block title %}{% endblock %}wao.ng</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+        <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+
+        <script src="{% static 'scripts/main.js' %}"></script>
+        <link rel="shortcut icon" type="imag/png" href="#"/>
+        </head>
+    <!-- HEADER -->
+		<header>
+			<!-- TOP HEADER -->
+			<div id="top-header">
+				<div class="container">
+					<ul class="header-links pull-left">
+						<li><a href="{% url 'frontpage' %}"><i class="text is-uppercase"></i> WAO.NG</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> info@wao.ng</a></li>
+                            </a>
+                        </li>
+					</ul>
+					<ul class="header-links pull-right">
+						<li><a href="#"><i></i></a></li>
+                        <li>
+                            {% if request.user.is_authenticated %}
+                            <a href="{% url 'vendor_admin' %}">My Account
+                                    </a>
+                            {% else %}
+                                <li><a href="{% url 'become_vendor' %}"><i class="fa fa-user-o"></i>Log in</a></li>
+                            {% endif %}
+                        </li>
+						<li><a href="{% url 'become_vendor' %}"><i class="fa fa-user-o"></i></a></li>
+                        <li><a href="{% url 'add_product' %}"><i class="fa fa-user-o"></i>Post your ads</a></li>
+					</ul>
+				</div>
+			</div>
+        <!-- MAIN HEADER -->
+			<div id="header">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<!-- LOGO -->
+						<div class="col-md-3">
+							<div class="header-logo">
+								<a href="#" class="logo">
+                                    <div class="text is-uppercase">
+                                        <img height="95px", width="195px" src="{% static 'assets/img/wsitelogo.png'%}"alt="">
+                                    </div>
+
+								</a>
+							</div>
+						</div>
+						<!-- /LOGO -->
+
+						<!-- SEARCH BAR -->
+						<div class="col-md-6">
+							<div class="header-search">
+								<form method="get" action="{% url 'search' %}">
+									<select class="input-select">
+										<option value="0">Nigeria (All)</option>
+									</select>
+									<input class="input" placeholder="I am looking for..." name="query">
+									<button class="search-btn">Search</button>
+								</form>
+							</div>
+						</div>
+						<!-- /SEARCH BAR -->
+
+						<!-- ACCOUNT -->
+						<div class="col-md-3 clearfix">
+							<div class="h">
+
+								<div>
+									<a>
+										<i></i>
+										<span></span>
+										<div class="qty"></div>
+									</a>
+									<div class="cart-dropdown">
+										<div class="cart-list">
+											<div class="product-widget">
+												<div class="product-img">
+													<img src="#">
+												</div>
+												<div class="product-body">
+
+												</div>
+												<button class="delete"><i class="fa fa-close"></i></button>
+											</div>
+
+											<div class="product-widget">
+												<div class="product-img">
+													<img src="{% static 'assets/img/product02.png'%}" alt="">
+												</div>
+												<div class="product-body">
+
+												</div>
+												<button class="delete"><i class="fa fa-close"></i></button>
+											</div>
+										</div>
+										<div class="cart-summary">
+
+										</div>
+										<div class="cart-btns">
+
+										</div>
+									</div>
+								</div>
+								<!-- /Cart -->
+							</div>
+						</div>
+						<!-- /ACCOUNT -->
+					</div>
+					<!-- row -->
+				</div>
+				<!-- container -->
+			</div>
+			<!-- /MAIN HEADER -->
+		</header>
+		<!-- /HEADER -->
+
+        <section class="section">
+            <div class="container">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+		<footer id="footer">
+			<!-- top footer -->
+			<div class="section">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-3 col-xs-6">
+							<div>
+								<h3 class="footer-title">About Us</h3>
+
+								<ul class="footer-links">
+                                    <li><a href="{% url 'hire' %}"><i class="fa fa-envelope-o"></i>We Are Hiring Join Us</a></li>
+									<li><a href="#"><i class="fa fa-map-marker"></i>Nigeria</a></li>
+									<li><a href="#"><i class="fa fa-phone"></i>+2347035613209</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>info@wao.ng</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-xs-6">
+							<div>
+                                <h3 class="footer-title">Information</h3>
+								<ul class="footer-links">
+									<li><a href="{% url 'aboutus' %}">About Us</a></li>
+									<li><a href="{% url 'contact' %}">Contact Us</a></li>
+                                    <li><a href="{% url 'safety' %}">Safety Tips</a></li>
+									<li><a href="{% url 'terms' %}">Privacy, Terms & Conditions</a></li>
+
+								</ul>
+							</div>
+						</div>
+
+						<div class="clearfix visible-xs"></div>
+
+						<div class="col-md-3 col-xs-6">
+							<div>
+                                <h3 class="footer-title">Categories</h3>
+								<ul class="footer-links">
+									<li><a href="#">Vehicles</a></li>
+									<li><a href="#">Properties</a></li>
+									<li><a href="#">Fashion</a></li>
+									<li><a href="#">Home Furnitures</a></li>
+									<li><a href="#">Electronics</a></li>
+
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-xs-6">
+							<div>
+								<h3 class="footer-title">Service</h3>
+								<ul class="footer-links">
+									<li><a href="#">Help</a></li>
+									<li><a href="#">FAQ</a></li>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /top footer -->
+
+			<!-- bottom footer -->
+			<div id="bottom-footer" class="section">
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<ul class="footer-payments">
+								<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+								<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+							</ul>
+							<span class="copyright">
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |  </i> wao.ng</a>
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</span>
+						</div>
+					</div>
+						<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /bottom footer -->
+		</footer>
+		<!-- /FOOTER -->
+
+		<!-- jQuery Plugins -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+		<script src="{% static 'assets/js/jquery.min.js'%}"></script>
+		<script src="{% static 'assets/js/bootstrap.min.'%}js"></script>
+		<script src="{% static 'assets/js/slick.min.js'%}"></script>
+		<script src="{% static 'assets/js/nouislider.min.js'%}"></script>
+		<script src="{% static 'assets/js/jquery.zoom.min.js'%}"></script>
+		<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>
+
+    </body>
+</html>

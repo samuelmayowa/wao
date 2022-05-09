@@ -1,0 +1,54 @@
+{% extends 'core/base2.html' %}
+
+{% block title %}register| {% endblock %}
+
+
+{% load static %}
+
+{% block content %}
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up Form</title>
+        <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'assets/css/main.css'  %}">
+    </head>
+    <body>
+
+
+        <form action="" method="post">
+
+        <h1>Register</h1>
+
+        <fieldset>
+          <legend><span class="number">1</span>Your basic info</legend>
+        </fieldset>
+
+
+
+<form  method="POST" action="">
+    {% csrf_token %}
+
+    <label>Username</label>
+    {{ VendorForm.username}}
+
+
+    <label>Email Address</label>
+    {{ VendorForm.email}}
+
+    <label>Password</label>
+    {{ VendorForm.password1}}
+
+    <label>Password Confirmation</label>
+    {{ VendorForm.password2}}
+    <fieldset>
+        <input style="btn btn-sm btn-success" type="submit" name="Register">
+    </fieldset>
+    {{form.errors}}
+    <a class="btn btn-sm btn-info" href="{% url 'login' %}">Already have an account: Login Here</a>
+
+</form>
+
+{% endblock %}
+

@@ -1,0 +1,31 @@
+<div class="navbar-menu" id="main-navbar">
+                <div class="navbar-start">
+                    <div class="navbar-item">
+                        <form method="get" action="{% url 'search' %}">
+                            <div class="field has-addons">
+                                <div class="control">
+                                    <input type="text" class="input" placeholder="Search..." name="query">
+                                </div>
+                                <div class="control">
+                                    <button class="button is-dark is-uppercase">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="navbar-end">
+
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'vendor_admin' %}">Vendor admin</a>
+                    {% else %}
+                        <a href="{% url 'become_vendor' %}">Become vendor</a>
+                    {% endif %}
+
+                    {% for category in menu_categories %}
+                        <a href="{% url 'category' category.slug %}" class="navbar-item">{{ category.title }}</a>
+                    {% endfor %}
+
+                    <a href="{% url 'contact' %}" class="navbar-item">Contact</a>
+                </div>
+            </div>
